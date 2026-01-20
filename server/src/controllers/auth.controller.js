@@ -33,12 +33,19 @@ export const signup = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, salt);
 
     // Create new user
+// Kiểm tra xem đã có user nào trong hệ thống chưa
+    const userCount = await User.countDocuments();
+
+    // Nếu chưa có user nào => admin, ngược lại là user
+    const role = userCount === 0 ? "admin" : "user";
+
+    // Create new user
     const newUser = new User({
       email,
       userName,
       password: hashedPassword,
-      creatingPost: true,  
-      role: "user",
+      creatingPost: true,
+      role,
     });
 
     if (newUser) {
