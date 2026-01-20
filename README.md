@@ -1,10 +1,9 @@
 Để chạy chương trình:
 
 ```shell
-npm run build
-```
+npm start
 
 ```shell
 cd app
-npm start
+npm run dev
 ```
