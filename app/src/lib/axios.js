@@ -1,9 +1,6 @@
 import axios from "axios";
 
 export const axiosInstanace = axios.create({
-  baseURL:
-    import.meta.env.MODE === "development"
-      ? "http://localhost:5001/api"
-      : "https://novels-backend.onrender.com/api",
+  baseURL: import.meta.env.VITE_API_URL,
   withCredentials: true,
 });
