@@ -21,11 +21,12 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://novels-91bu0rsdu-datin123qs-projects.vercel.app"
+      "https://novel-fe.vercel.app"
     ],
     credentials: true,
   })
 );
+
 
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
