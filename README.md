@@ -1,5 +1,7 @@
 Để chạy chương trình:
-
+```shell
+npm run build
+```
 ```shell
 npm start
 ```
