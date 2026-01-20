@@ -7,7 +7,7 @@ import jwt from "jsonwebtoken";
 import crypto from "crypto";
 import dotenv from "dotenv";
 
-dotenv.config({ path: "../../.env" });
+dotenv.config();
 
 export const signup = async (req, res) => {
   const { email, userName, password } = req.body;
@@ -43,8 +43,9 @@ export const signup = async (req, res) => {
 
     if (newUser) {
       // generate jwt token
-      generateToken(newUser._id, res);
       await newUser.save();
+      generateToken(newUser._id, res);
+      
       // Create data user
       res.status(201).json({
         _id: newUser._id,

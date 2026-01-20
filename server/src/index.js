@@ -19,7 +19,10 @@ app.use(express.urlencoded({ limit: "10mb", extended: true }));
 app.use(cookieParser());
 app.use(
   cors({
-    origin: true,
+    origin: [
+      "http://localhost:5173",
+      "https://novels-91bu0rsdu-datin123qs-projects.vercel.app"
+    ],
     credentials: true,
   })
 );
